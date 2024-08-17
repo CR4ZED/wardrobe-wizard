@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Hello World",
+  "version": "1.0.0",
+  "description": "Basics of chrome extension developement",
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": ["sidePanel"],
+  "side_panel": {
+    "default_path": "side-panel/sidePanel.html"
+  },
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.amazon.*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
